@@ -4,7 +4,7 @@
   display: block;
   width: 40vw;
   height: 100rpx;
-  margin-top: 130rpx;
+  margin-top: 120rpx;
   margin-left: 20rpx;
   /* background: yellow; */
 }

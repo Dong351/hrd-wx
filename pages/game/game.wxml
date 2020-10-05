@@ -1,7 +1,7 @@
 <view id="record">
   <text>时间 : </text>
   <text>\n</text>
-  <text>步数 : </text>
+  <text>步数 : {{cnt}}</text>
 </view>
 
 <view id="iron">

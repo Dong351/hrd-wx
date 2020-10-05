@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/test/test",
     "pages/game/game",
     "pages/moveing/moveing",
     "pages/index/index",

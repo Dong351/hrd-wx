@@ -6,8 +6,9 @@ Page({
    */
   data: {
     // imgname: [0,1,2,3,4,5,6,7,8,9],
-    imgname: [0,2,6,8,5,1,3,4,7,9],
+    imgname: [0,2,6,9,5,1,3,4,7,8],
     win:false,
+    cnt: 0,
     scale:"",
     PX: [0,216,430],
     PY: [0,210,420],
@@ -71,28 +72,32 @@ Page({
       this.data.imgname[selectid+1] = this.data.imgname[selectid];
       this.data.imgname[selectid] = 9;
       this.setData({
-        imgname: this.data.imgname
+        imgname: this.data.imgname,
+        cnt: this.data.cnt+1
       })
     }
     else if((this.data.imgname[selectid-1] == 9) && (selectid > 1)){
       this.data.imgname[selectid-1] = this.data.imgname[selectid];
       this.data.imgname[selectid] = 9;
       this.setData({
-        imgname: this.data.imgname
+        imgname: this.data.imgname,
+        cnt: this.data.cnt+1
       })
     }
     else if((this.data.imgname[selectid+3] == 9) && (selectid < 7)){
       this.data.imgname[selectid+3] = this.data.imgname[selectid];
       this.data.imgname[selectid] = 9;
       this.setData({
-        imgname: this.data.imgname
+        imgname: this.data.imgname,
+        cnt: this.data.cnt+1
       })
     }
     else if((this.data.imgname[selectid-3] == 9) && (selectid > 3)){
       this.data.imgname[selectid-3] = this.data.imgname[selectid];
       this.data.imgname[selectid] = 9;
       this.setData({
-        imgname: this.data.imgname
+        imgname: this.data.imgname,
+        cnt: this.data.cnt+1
       })
     }
     let cnt = 0;
