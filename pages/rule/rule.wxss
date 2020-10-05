@@ -1,0 +1,35 @@
+/* pages/rule/rule.wxss */
+
+#rule{
+  display: block;
+  width: 660rpx;
+  height: 356rpx;
+  margin: 100rpx auto;
+  background:transparent;
+  border: black 2rpx solid;
+}
+
+#rule text{
+  font-family: "华文行楷";
+}
+
+image{
+  position: absolute;
+  display: block;
+  width: 680rpx;
+  margin: 0 auto;
+  left: 50rpx;
+  top: 500rpx;
+}
+
+button{
+  width: 0rpx;
+  height: 68rpx;
+
+  background-color: transparent;
+  border: black 3rpx solid;
+  font-family: "华文隶书";
+  font-size: 54rpx;
+  border-radius: 8rpx;
+  top: 500rpx;
+}

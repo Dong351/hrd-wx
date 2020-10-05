@@ -1,0 +1,18 @@
+{
+  "pages":[
+    "pages/game/game",
+    "pages/moveing/moveing",
+    "pages/index/index",
+    "pages/rule/rule",
+    "pages/targerImg/targerImg",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "图片华容道",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

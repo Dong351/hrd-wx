@@ -1,0 +1,17 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+page {
+  overflow:hidden;
+  position:fixed;
+  background-image:url('https://s1.ax1x.com/2020/09/25/0CkaE6.jpg');
+  margin: 0px;
+  background-size: 100% 100%;
+  }

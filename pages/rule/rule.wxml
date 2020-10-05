@@ -1,0 +1,10 @@
+<view id="rule">
+  <text>
+    1.界面将会给出一张被切割成9块并随机打乱的图片（其中一块为空白图片）
+    2.玩家需要移动空白块将图片还原成原图
+    3.当移动到一定步数时系统将会指定交互两个图块，若导致了无解情况，系统将给予一次自由交换图块的机会
+  </text>
+</view>
+<image mode="widthFix" src="https://s1.ax1x.com/2020/09/25/0Cu9f0.png"></image>
+
+<button bindtap="backIndex">返回</button>

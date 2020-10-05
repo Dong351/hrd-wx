@@ -1,0 +1,40 @@
+/**index.wxss**/
+
+/* 750rpx = 375px
+  1rpx = 0.5px
+*/
+#bg{
+  /* display: flexbox; */
+  width: 750rpx;
+  height: 1199rpx;
+  opacity: 0.4;
+}
+
+#title image{
+  position: absolute;
+  top: 160rpx;
+  left: -220rpx;
+  /* left: 498rpx; */
+  height: 256rpx;
+}
+
+#bt{
+  display: block;
+
+}
+
+#bt button{
+  top: 620rpx;
+  width: 388rpx;
+  height: 92rpx;
+
+  margin: 75rpx auto;
+  background-color: transparent;
+  border: black 3rpx solid;
+  font-family: "华文隶书";
+  font-size: 54rpx;
+  border-radius: 8rpx;
+}
+
+
+

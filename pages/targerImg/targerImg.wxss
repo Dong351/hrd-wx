@@ -1,0 +1,20 @@
+/* pages/targerImg/targerImg.wxss */
+
+image{
+  top: 100rpx;
+  display: flex;
+  height: 660rpx;
+  width: 660rpx;
+  margin: 100rpx auto;
+}
+
+button{
+  width: 120rpx;
+  height: 68rpx;
+
+  background-color: transparent;
+  border: black 3rpx solid;
+  font-family: "华文隶书";
+  font-size: 54rpx;
+  border-radius: 8rpx;
+}

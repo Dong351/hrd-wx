@@ -1,0 +1,59 @@
+/* pages/game/game.wxss */
+#record{
+  float: left;
+  display: block;
+  width: 40vw;
+  height: 100rpx;
+  margin-top: 130rpx;
+  margin-left: 20rpx;
+  /* background: yellow; */
+}
+
+#record text{
+
+  margin: 30rpx;
+  font-family: "微软雅黑";
+  font-size: 36rpx;
+  font-weight: 600;
+ 
+}
+
+#iron{
+  margin-top: 150rpx;
+  margin-left: 30rpx;
+  margin-bottom: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  float: left;
+  width: 50%;
+  height: 80rpx;
+}
+
+#iron image{
+  
+  height: 76rpx;
+  width: 90rpx;
+}
+
+#hrd{
+  border: solid slategray 8rpx;
+  position: absolute;
+  top: 280rpx;
+  left: 40rpx;
+  height: 635rpx;
+  width: 654rpx; 
+}
+
+#hrd image{
+  position: absolute;
+  border: black 2rpx solid;
+  margin-left: 10rpx;
+  height: 200rpx;
+  width: 200rpx;
+}
+
+#test{
+  position: absolute;
+  top: 1000rpx;
+  font-size: 80rpx;
+}
