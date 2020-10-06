@@ -1,0 +1,13 @@
+<view id="win">
+  <view id="bg">
+
+  </view>
+
+  <image id="win-font" mode="widthFix" src="https://s1.ax1x.com/2020/10/06/0U3WUH.png"></image>
+
+<!-- <view id="winButton">
+  <button>再来一把</button>
+  <button>回到首页</button>
+</view> -->
+
+</view>

@@ -1,1 +1,1 @@
-<text class='marright'>{{hours}}:{{minute}}:{{second}}</text>
+<text class='marright'>{{minute}}:{{second}}</text>

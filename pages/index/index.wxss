@@ -31,7 +31,8 @@
   margin: 75rpx auto;
   background-color: transparent;
   border: black 3rpx solid;
-  font-family: "华文隶书";
+  font-family: ‘Courier New’, Courier, monospace;
+  /* font-family:'LiDeBiao-Xing323a2cd0b2d227a5'; */
   font-size: 54rpx;
   border-radius: 8rpx;
 }

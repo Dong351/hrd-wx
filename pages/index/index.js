@@ -10,7 +10,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   GoToTargetPage:function(e){
-    wx.navigateTo({ url: '/pages/targerImg/targerImg', })
+    wx.navigateTo({ url: '/pages/tarImg/tarImg', })
   },
   GoToRule: function(e){
     wx.navigateTo({

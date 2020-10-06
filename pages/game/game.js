@@ -6,10 +6,15 @@ Page({
    */
   data: {
     // imgname: [0,1,2,3,4,5,6,7,8,9],
-    imgname: [0,2,6,9,5,1,3,4,7,8],
-    win:false,
+    // imgname: [0,2,6,9,5,1,3,4,7,8],
+    imgname: [0,1,2,3,4,5,6,7,9,8],
+    win:true,
+    op:1,
     cnt: 0,
     scale:"",
+    setInter:'',
+    minute: '0' + 0,   // 分
+    second: '0' + 0,    // 秒
     PX: [0,216,430],
     PY: [0,210,420],
     left1:'',
@@ -40,65 +45,83 @@ Page({
     top9:'420',
   },
 
-  GoToTarget: function(){
+// 计时器
+setInterval: function () {
+    const that = this
+    var second = that.data.second
+    var minute = that.data.minute
+    this.data.setInter = setInterval(function () {  // 设置定时器
+        second++
+        if (second >= 60) {
+            second = 0  //  大于等于60秒归零
+            minute++
+            if (minute < 10) {
+                // 少于10补零
+                that.setData({
+                    minute: '0' + minute
+                })
+            } else {
+                that.setData({
+                    minute: minute
+                })
+            }
+        }
+        if (second < 10) {
+            // 少于10补零
+            that.setData({
+                second: '0' + second
+            })
+        } else {
+            that.setData({
+                second: second
+            })
+        }
+    }, 1000)
+},
+GoToTarget: function(){
     wx.navigateTo({
       url: '../targerImg/targerImg',
     })
   },
-  moveing: function(e){
+moveing: function(e){
 
     let selectid = Number(e.target.id);
-    // let x;
-    // let y;
-    // if(selectid == 0){
-    //   x = 430;
-    //   y = 420;
-    // }
-    // else{
-    //   console.log("px="+(selectid%3-1));
-    //   console.log("py="+parseInt((selectid-1)/3));
-      
-    //   if((selectid%3-1) == -1){
-    //     x = 430;
-    //   }
-    //   else x = this.data.PX[selectid%3-1];
-    //   y = this.data.PY[parseInt((selectid-1)/3)];
-    // }
     console.log("id="+selectid);
-    // console.log("x="+x);
-    // console.log("y="+y);
     
-    if((this.data.imgname[selectid+1] == 9) && (selectid < 9)){
-      this.data.imgname[selectid+1] = this.data.imgname[selectid];
-      this.data.imgname[selectid] = 9;
-      this.setData({
-        imgname: this.data.imgname,
-        cnt: this.data.cnt+1
-      })
-    }
-    else if((this.data.imgname[selectid-1] == 9) && (selectid > 1)){
-      this.data.imgname[selectid-1] = this.data.imgname[selectid];
-      this.data.imgname[selectid] = 9;
-      this.setData({
-        imgname: this.data.imgname,
-        cnt: this.data.cnt+1
-      })
-    }
-    else if((this.data.imgname[selectid+3] == 9) && (selectid < 7)){
-      this.data.imgname[selectid+3] = this.data.imgname[selectid];
-      this.data.imgname[selectid] = 9;
-      this.setData({
-        imgname: this.data.imgname,
-        cnt: this.data.cnt+1
-      })
-    }
-    else if((this.data.imgname[selectid-3] == 9) && (selectid > 3)){
-      this.data.imgname[selectid-3] = this.data.imgname[selectid];
-      this.data.imgname[selectid] = 9;
-      this.setData({
-        imgname: this.data.imgname,
-        cnt: this.data.cnt+1
-      })
+    // 图块移动 当win=true时，图块锁定
+    if(!this.data.win){
+      if((this.data.imgname[selectid+1] == 9) && (selectid < 9)){
+        this.data.imgname[selectid+1] = this.data.imgname[selectid];
+        this.data.imgname[selectid] = 9;
+        this.setData({
+          imgname: this.data.imgname,
+          cnt: this.data.cnt+1
+        })
+      }
+      else if((this.data.imgname[selectid-1] == 9) && (selectid > 1)){
+        this.data.imgname[selectid-1] = this.data.imgname[selectid];
+        this.data.imgname[selectid] = 9;
+        this.setData({
+          imgname: this.data.imgname,
+          cnt: this.data.cnt+1
+        })
+      }
+      else if((this.data.imgname[selectid+3] == 9) && (selectid < 7)){
+        this.data.imgname[selectid+3] = this.data.imgname[selectid];
+        this.data.imgname[selectid] = 9;
+        this.setData({
+          imgname: this.data.imgname,
+          cnt: this.data.cnt+1
+        })
+      }
+      else if((this.data.imgname[selectid-3] == 9) && (selectid > 3)){
+        this.data.imgname[selectid-3] = this.data.imgname[selectid];
+        this.data.imgname[selectid] = 9;
+        this.setData({
+          imgname: this.data.imgname,
+          cnt: this.data.cnt+1
+        })
+      }
     }
     let cnt = 0;
     for(let i = 1;i < 10;i++){
@@ -111,7 +134,9 @@ Page({
       console.log("You Win!!!!");
       this.setData({
         win: true
-      })
+      }),
+      clearInterval(this.data.setInter);
+      this.data.op = 0.3;
     }
     console.log(this.data.imgname);
   
@@ -146,6 +171,7 @@ Page({
       }
     }
     )
+    this.setInterval();
   },
 
   /**

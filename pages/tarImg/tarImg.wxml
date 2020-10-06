@@ -1,0 +1,3 @@
+<image mode="scaleToFill" src="../../img/a_.jpg"></image>
+
+<button bindtap="GoToGame">继续</button>

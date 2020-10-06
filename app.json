@@ -1,9 +1,11 @@
 {
   "pages":[
-    "pages/test/test",
     "pages/game/game",
-    "pages/moveing/moveing",
+    "pages/win/win",
     "pages/index/index",
+    "pages/tarImg/tarImg",
+    "pages/test/test",
+    "pages/moveing/moveing",
     "pages/rule/rule",
     "pages/targerImg/targerImg",
     "pages/logs/logs"

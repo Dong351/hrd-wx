@@ -1,0 +1,20 @@
+#bg{
+  height: 800rpx;
+  width: 600rpx;
+
+  position: absolute;
+  top: 160rpx;
+  left: 74rpx;
+
+  border: black 6rpx groove;
+  background: white;
+  opacity: 0.4;
+}
+
+#win-font{
+  width: 1000rpx;
+
+  position: absolute;
+  top: 160rpx;
+  left: -100rpx;
+}

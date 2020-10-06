@@ -1,5 +1,9 @@
 //app.js
 App({
+  data:{
+    minute: '0' + 0,   // 分
+    second: '0' + 0    // 秒
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

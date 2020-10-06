@@ -52,8 +52,24 @@
   width: 200rpx;
 }
 
-#test{
+
+#bg{
+  height: 800rpx;
+  width: 600rpx;
+
   position: absolute;
-  top: 1000rpx;
-  font-size: 80rpx;
+  top: 120rpx;
+  left: 74rpx;
+
+  border: black 6rpx groove;
+  background: rgb(255, 255, 255);
+  /* opacity: 0.8; */
+}
+
+#win-font{
+  width: 1000rpx;
+
+  position: absolute;
+  top: 120rpx;
+  left: -100rpx;
 }
