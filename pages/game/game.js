@@ -8,9 +8,10 @@ Page({
   data: {
     // imgname: [0,1,2,3,4,5,6,7,8,9],
     // imgname: [0,2,6,9,5,1,3,4,7,8],
-    index: "",
-    imgname: "",
-    back: "",
+    index: "", //图片序号
+    imgname: "", //图块的序号数组
+    back: "", //备份的图块的序号数组
+    cheat_step: "", //自动复原的string串
     win: false,
     op: 1,
     cnt: 0,
@@ -89,7 +90,7 @@ Page({
 
   again: function () {
     wx.navigateTo({
-      url: '../game/game',
+      url: '../tarImg/tarImg',
     })
   },
 
@@ -160,13 +161,87 @@ Page({
       imgname: this.data.back
     })
   },
-  change: function(){
+  change: function () {
     wx.navigateTo({
       url: '../tarImg/tarImg',
     })
   },
 
+  cheat: function () {
+    let that = this;
+    wx.request({
+      url: 'http://101.133.236.170/api/answer', //本地服务器地址
+      data: {
+        mate: that.data.imgname
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success: function (res) {
+        that.setData({
+          cheat_step: res.data.data.path
+        })
+        let step = that.data.cheat_step;
+        let str = step[0];
+        console.log(str);
+        for (let i = 0; i < str.length; i++) {
+          setTimeout(function () {
+            let tmp = str.charAt(i);
+            console.log(tmp);
+            let imgmat = that.data.imgname;
+            let index;
+            for (let i = 0; i < imgmat.length; i++) {
+              if (imgmat[i] == 0) {
+                index = i;
+                console.log(index);
+              }
+            }
+            //移动图块
+            if (tmp == "a") {
+              that.data.imgname[index] = that.data.imgname[index - 1];
+              that.data.imgname[index - 1] = 0;
+              that.setData({
+                imgname: that.data.imgname,
+                cnt: that.data.cnt+1
+              })
+            } else if (tmp == "d") {
+              that.data.imgname[index] = that.data.imgname[index + 1];
+              that.data.imgname[index + 1] = 0;
+              that.setData({
+                imgname: that.data.imgname,
+                cnt: that.data.cnt+1
+              })
+            } else if (tmp == "w") {
+              that.data.imgname[index] = that.data.imgname[index - 3];
+              that.data.imgname[index - 3] = 0;
+              that.setData({
+                imgname: that.data.imgname,
+                cnt: that.data.cnt+1
+              })
+            } else if (tmp == "s") {
+              that.data.imgname[index] = that.data.imgname[index + 3];
+              that.data.imgname[index + 3] = 0;
+              that.setData({
+                imgname: that.data.imgname,
+                cnt: that.data.cnt+1
+              })
+            }
 
+            that.setData({
+                win: true,
+                op: 0.3
+              }),
+              clearInterval(that.data.setInter);
+          }, 1000)
+        }
+      },
+      fail: function (res) {
+        console.log("自动复原失败获取失败");
+      }
+    })
+
+  },
 
   /**
    * 生命周期函数--监听页面加载

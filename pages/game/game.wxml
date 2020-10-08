@@ -11,7 +11,7 @@
     <image src="../../iron/u206.png" bindtap="GoToTarget"></image>
   </view>
 
-  <button id="cheat">自动复原</button>
+  <button id="cheat" bindtap="cheat">自动复原</button>
 
   <view id="hrd">
     <!-- <image mode="scaleToFill" src="https://s1.ax1x.com/2020/09/27/0k6oCQ.png"></image> -->
