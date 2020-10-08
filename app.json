@@ -1,10 +1,10 @@
 {
   "pages":[
     "pages/game/game",
-    "pages/win/win",
-    "pages/index/index",
     "pages/tarImg/tarImg",
+    "pages/index/index",
     "pages/test/test",
+    "pages/win/win",
     "pages/moveing/moveing",
     "pages/rule/rule",
     "pages/targerImg/targerImg",

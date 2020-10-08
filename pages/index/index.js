@@ -4,6 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    code:"",
+    login:false,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -18,6 +20,26 @@ Page({
     })
   },
 
+  login: function(){
+    let that = this;
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            // url: 'https://test.com/onLogin',
+            data: {
+              code: res.code
+            }
+          })
+          console.log(res);
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+    console.log(this.data.code);
+  },
 
 
 
@@ -37,6 +59,8 @@ Page({
     })
   },
   onLoad: function () {
+    console.log(app.globalData.mwxt_mark);
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

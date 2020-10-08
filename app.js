@@ -1,8 +1,7 @@
 //app.js
 App({
-  data:{
-    minute: '0' + 0,   // 分
-    second: '0' + 0    // 秒
+  globalData: {
+    img_index:""
   },
   onLaunch: function () {
     // 展示本地存储能力

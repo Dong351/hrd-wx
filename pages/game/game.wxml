@@ -7,49 +7,56 @@
 
   <view id="iron">
     <image src="../../iron/u202.png" bindtap="flush"></image>
-    <image src="../../iron/u204.png"></image>
+    <image src="../../iron/u204.png" bindtap="change"></image>
     <image src="../../iron/u206.png" bindtap="GoToTarget"></image>
   </view>
+
+  <button id="cheat">自动复原</button>
 
   <view id="hrd">
     <!-- <image mode="scaleToFill" src="https://s1.ax1x.com/2020/09/27/0k6oCQ.png"></image> -->
     <view id="onef">
       <image id="1" mode="scaleToFill" bindtap="moveing" style="left:{{left1}}rpx;top:{{top1}}rpx;"
-        src="../../img/{{imgname[1]}}.jpg" data-imgsrc="../../img/1.jpg"></image>
+        src="../../img/{{index}}/{{imgname[0]}}.jpg" data-imgsrc="../../img/1.jpg"></image>
       <image id="2" mode="scaleToFill" bindtap="moveing" style="left:{{left2}}rpx;top:{{top2}}rpx;"
-        src="../../img/{{imgname[2]}}.jpg" data-imgsrc="../../img/2.jpg"></image>
+        src="../../img/{{index}}/{{imgname[1]}}.jpg" data-imgsrc="../../img/2.jpg"></image>
       <image id="3" mode="scaleToFill" bindtap="moveing" style="left:{{left3}}rpx;top:{{top3}}rpx;"
-        src="../../img/{{imgname[3]}}.jpg" data-imgsrc="../../img/3.jpg"></image>
+        src="../../img/{{index}}/{{imgname[2]}}.jpg" data-imgsrc="../../img/3.jpg"></image>
     </view>
     <view id="twof">
       <image id="4" mode="scaleToFill" bindtap="moveing" style="left:{{left4}}rpx;top:{{top4}}rpx;"
-        src="../../img/{{imgname[4]}}.jpg" data-imgsrc="../../img/4.jpg"></image>
+        src="../../img/{{index}}/{{imgname[3]}}.jpg" data-imgsrc="../../img/4.jpg"></image>
       <image id="5" mode="scaleToFill" bindtap="moveing" style="left:{{left5}}rpx;top:{{top5}}rpx;"
-        src="../../img/{{imgname[5]}}.jpg" data-imgsrc="../../img/5.jpg"></image>
+        src="../../img/{{index}}/{{imgname[4]}}.jpg" data-imgsrc="../../img/5.jpg"></image>
       <image id="6" mode="scaleToFill" bindtap="moveing" style="left:{{left6}}rpx;top:{{top6}}rpx;"
-        src="../../img/{{imgname[6]}}.jpg" data-imgsrc="../../img/6.jpg"></image>
+        src="../../img/{{index}}/{{imgname[5]}}.jpg" data-imgsrc="../../img/6.jpg"></image>
     </view>
     <view id="threef">
       <image id="7" mode="scaleToFill" bindtap="moveing" style="left:{{left7}}rpx;top:{{top7}}rpx;"
-        src="../../img/{{imgname[7]}}.jpg" data-imgsrc="../../img/7.jpg"></image>
+        src="../../img/{{index}}/{{imgname[6]}}.jpg" data-imgsrc="../../img/7.jpg"></image>
       <image id="8" mode="scaleToFill" bindtap="moveing" style="left:{{left8}}rpx;top:{{top8}}rpx;"
-        src="../../img/{{imgname[8]}}.jpg" data-imgsrc="../../img/8.jpg"></image>
+        src="../../img/{{index}}/{{imgname[7]}}.jpg" data-imgsrc="../../img/8.jpg"></image>
       <image id="9" mode="scaleToFill" bindtap="moveing" style="left:{{left9}}rpx;top:{{top9}}rpx;"
-        src="../../img/{{imgname[9]}}.jpg" data-imgsrc="../../img/9.jpg"></image>
+        src="../../img/{{index}}/{{imgname[8]}}.jpg" data-imgsrc="../../img/9.jpg"></image>
     </view>
   </view>
 </view>
 
 <view id="win" wx:if="{{win}}">
-  <view id="bg">
-
-  </view>
-
+  <view id="bg"></view>
+  
   <image id="win-font" mode="widthFix" src="https://s1.ax1x.com/2020/10/06/0U3WUH.png"></image>
-
-  <!-- <view id="winButton">
-  <button>再来一把</button>
-  <button>回到首页</button>
-</view> -->
+  
+  <view id="record2">
+    <text>用时：{{minute}}:{{second}}</text>
+    <text>\n</text>
+    <text>步数：{{cnt}}</text>
+  </view>
+  
+  <view id="winButton">
+    <button bindtap="again">再来一把</button>
+    <button>查看排名</button>
+    <button bindtap="backToIndex">返回首页</button>
+  </view>
 
 </view>

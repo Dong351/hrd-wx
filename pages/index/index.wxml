@@ -6,6 +6,7 @@
 </div>
 
 <div id="bt">
+  <button bindtap="login" wx:if="{{login}}">登录</button>
   <button bindtap="GoToTargetPage">开始游戏</button>
   <button bindtap="GoToRule">游戏规则</button>
 </div>

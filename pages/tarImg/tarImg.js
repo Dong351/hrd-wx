@@ -1,11 +1,12 @@
 // pages/targerImg/targerImg.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    index: ""
   },
 
   GoToGame: function(){
@@ -27,7 +28,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let num = Math.random();
+    num = num*31;
+    num = Math.floor(num);
+    app.globalData.img_index = num;
+    console.log(app.globalData.img_index);
+    this.setData({
+      index: app.globalData.img_index
+    })    
   },
 
   /**

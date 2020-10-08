@@ -1,4 +1,5 @@
 // pages/game/game.js
+const app = getApp()
 Page({
 
   /**
@@ -7,145 +8,161 @@ Page({
   data: {
     // imgname: [0,1,2,3,4,5,6,7,8,9],
     // imgname: [0,2,6,9,5,1,3,4,7,8],
-    imgname: [0,1,2,3,4,5,6,7,9,8],
-    win:true,
-    op:1,
+    index: "",
+    imgname: "",
+    back: "",
+    win: false,
+    op: 1,
     cnt: 0,
-    scale:"",
-    setInter:'',
-    minute: '0' + 0,   // 分
-    second: '0' + 0,    // 秒
-    PX: [0,216,430],
-    PY: [0,210,420],
-    left1:'',
-    top1:'',
+    scale: "",
+    setInter: '',
+    minute: '0' + 0, // 分
+    second: '0' + 0, // 秒
+    PX: [0, 216, 430],
+    PY: [0, 210, 420],
+    left1: '',
+    top1: '',
 
-    left2:'216',
-    top2:'',
+    left2: '216',
+    top2: '',
 
-    left3:'430',
-    top3:'',
+    left3: '430',
+    top3: '',
 
-    left4:'0',
-    top4:'210',
+    left4: '0',
+    top4: '210',
 
-    left5:'216',
-    top5:'210',
+    left5: '216',
+    top5: '210',
 
-    left6:'430',
-    top6:'210',
+    left6: '430',
+    top6: '210',
 
-    left7:'',
-    top7:'420',
+    left7: '',
+    top7: '420',
 
-    left8:'216',
-    top8:'420',
+    left8: '216',
+    top8: '420',
 
-    left9:'430',
-    top9:'420',
+    left9: '430',
+    top9: '420',
   },
 
-// 计时器
-setInterval: function () {
+  // 计时器
+  setInterval: function () {
     const that = this
     var second = that.data.second
     var minute = that.data.minute
-    this.data.setInter = setInterval(function () {  // 设置定时器
-        second++
-        if (second >= 60) {
-            second = 0  //  大于等于60秒归零
-            minute++
-            if (minute < 10) {
-                // 少于10补零
-                that.setData({
-                    minute: '0' + minute
-                })
-            } else {
-                that.setData({
-                    minute: minute
-                })
-            }
-        }
-        if (second < 10) {
-            // 少于10补零
-            that.setData({
-                second: '0' + second
-            })
+    this.data.setInter = setInterval(function () { // 设置定时器
+      second++
+      if (second >= 60) {
+        second = 0 //  大于等于60秒归零
+        minute++
+        if (minute < 10) {
+          // 少于10补零
+          that.setData({
+            minute: '0' + minute
+          })
         } else {
-            that.setData({
-                second: second
-            })
+          that.setData({
+            minute: minute
+          })
         }
+      }
+      if (second < 10) {
+        // 少于10补零
+        that.setData({
+          second: '0' + second
+        })
+      } else {
+        that.setData({
+          second: second
+        })
+      }
     }, 1000)
-},
-GoToTarget: function(){
+  },
+  GoToTarget: function () {
     wx.navigateTo({
       url: '../targerImg/targerImg',
     })
   },
-moveing: function(e){
 
+  again: function () {
+    wx.navigateTo({
+      url: '../game/game',
+    })
+  },
+
+  backToIndex: function () {
+    wx.navigateTo({
+      url: '../index/index',
+    })
+  },
+  moveing: function (e) {
     let selectid = Number(e.target.id);
-    console.log("id="+selectid);
-    
+    console.log("id=" + selectid);
+
     // 图块移动 当win=true时，图块锁定
-    if(!this.data.win){
-      if((this.data.imgname[selectid+1] == 9) && (selectid < 9)){
-        this.data.imgname[selectid+1] = this.data.imgname[selectid];
-        this.data.imgname[selectid] = 9;
+    if (!this.data.win) {
+      if ((this.data.imgname[selectid] == 0) && (selectid < 9)) {
+        this.data.imgname[selectid] = this.data.imgname[selectid - 1];
+        this.data.imgname[selectid - 1] = 0;
         this.setData({
           imgname: this.data.imgname,
-          cnt: this.data.cnt+1
+          cnt: this.data.cnt + 1
         })
-      }
-      else if((this.data.imgname[selectid-1] == 9) && (selectid > 1)){
-        this.data.imgname[selectid-1] = this.data.imgname[selectid];
-        this.data.imgname[selectid] = 9;
+      } else if ((this.data.imgname[selectid - 2] == 0) && (selectid > 1)) {
+        this.data.imgname[selectid - 2] = this.data.imgname[selectid - 1];
+        this.data.imgname[selectid - 1] = 0;
         this.setData({
           imgname: this.data.imgname,
-          cnt: this.data.cnt+1
+          cnt: this.data.cnt + 1
         })
-      }
-      else if((this.data.imgname[selectid+3] == 9) && (selectid < 7)){
-        this.data.imgname[selectid+3] = this.data.imgname[selectid];
-        this.data.imgname[selectid] = 9;
+      } else if ((this.data.imgname[selectid + 2] == 0) && (selectid < 7)) {
+        this.data.imgname[selectid + 2] = this.data.imgname[selectid - 1];
+        this.data.imgname[selectid - 1] = 0;
         this.setData({
           imgname: this.data.imgname,
-          cnt: this.data.cnt+1
+          cnt: this.data.cnt + 1
         })
-      }
-      else if((this.data.imgname[selectid-3] == 9) && (selectid > 3)){
-        this.data.imgname[selectid-3] = this.data.imgname[selectid];
-        this.data.imgname[selectid] = 9;
+      } else if ((this.data.imgname[selectid - 4] == 0) && (selectid > 3)) {
+        this.data.imgname[selectid - 4] = this.data.imgname[selectid - 1];
+        this.data.imgname[selectid - 1] = 0;
         this.setData({
           imgname: this.data.imgname,
-          cnt: this.data.cnt+1
+          cnt: this.data.cnt + 1
         })
       }
     }
     let cnt = 0;
-    for(let i = 1;i < 10;i++){
-      if(this.data.imgname[i] == i){
+    for (let i = 1; i < 10; i++) {
+      if (this.data.imgname[i] == i) {
         cnt++;
       }
     }
     console.log(cnt);
-    if(cnt == 9){
+    if (cnt == 8) {
       console.log("You Win!!!!");
       this.setData({
-        win: true
-      }),
-      clearInterval(this.data.setInter);
-      this.data.op = 0.3;
+          win: true,
+          op: 0.3
+        }),
+        clearInterval(this.data.setInter);
+
     }
     console.log(this.data.imgname);
-  
-    
   },
 
-  flush: function(){
+  flush: function () {
+    console.log(this.data.back);
+
+    this.setData({
+      imgname: this.data.back
+    })
+  },
+  change: function(){
     wx.navigateTo({
-      url: '../game/game',
+      url: '../tarImg/tarImg',
     })
   },
 
@@ -155,6 +172,12 @@ moveing: function(e){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 获取全局变量，确定图片index
+    this.setData({
+      index: app.globalData.img_index
+    })
+
+    // 获取页面初始分辨率
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -164,14 +187,40 @@ moveing: function(e){
         console.log('width=' + res.windowWidth);
         // 高度,宽度 单位为px
         that.setData({
-          scale: 750/res.windowWidth
+          scale: 750 / res.windowWidth
         })
         // console.log(that.data.scale);
-        
+
       }
-    }
-    )
+    })
+
+    //开启计时器
     this.setInterval();
+
+    // 获取图片序列
+    wx.request({
+      url: 'http://101.133.236.170/api/genTest', //本地服务器地址
+      // data: {
+      //   username: '001',
+      //   password: 'abc',
+      // },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success: function (res) {
+        let mate = res.data.data.mate;
+        console.log(mate);
+        that.setData({
+          imgname: mate,
+        })
+        let mate2 = JSON.parse(JSON.stringify(mate));
+        that.data.back = mate2;
+      },
+      fail: function (res) {
+        console.log("图片序列获取失败");
+      }
+    })
   },
 
   /**

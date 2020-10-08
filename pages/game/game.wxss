@@ -55,14 +55,16 @@
 
 #bg{
   height: 800rpx;
-  width: 600rpx;
+  width: 540rpx;
 
   position: absolute;
   top: 120rpx;
-  left: 74rpx;
+  left: 94rpx;
 
   border: black 6rpx groove;
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255); */
+  background-image: url("https://s1.ax1x.com/2020/10/08/0w9Uvn.jpg");
+  background-size:100% auto;
   /* opacity: 0.8; */
 }
 
@@ -72,4 +74,50 @@
   position: absolute;
   top: 120rpx;
   left: -100rpx;
+}
+
+#win #winButton{
+  position: relative;
+  top: 190rpx;
+}
+
+#win button{
+  background-color: transparent;
+  border: solid 3rpx black;
+  width: 240rpx;
+  margin-top: 40rpx;
+}
+
+#record2{
+  /* float: left; */
+  /* display: block; */
+  position: absolute;
+  top: 320rpx;
+  left: 240rpx;
+  text-align: center;
+
+  height: 120rpx;
+  width: 280rpx;
+  border: black 3rpx solid;
+  border-radius: .8em;
+  border-style:dotted solid;
+  /* background-clip: padding-box; */
+  /* font-size: 30rpx; */
+}
+
+#record2 text{
+  margin-top: 40rpx;
+  font-size: 40rpx;
+}
+
+#cheat{
+  position: absolute;
+  top: 980rpx;
+  right: 60rpx;
+
+  background: transparent;
+  border: solid 2rpx black;
+  font-size: 28rpx;
+
+  width: 280rpx;
 }

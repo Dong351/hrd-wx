@@ -1,1 +1,3 @@
-<text class='marright'>{{minute}}:{{second}}</text>
+<!-- <text class='marright'>{{minute}}:{{second}}</text> -->
+
+<button bindtap="test">touch me</button>

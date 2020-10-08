@@ -3,7 +3,26 @@ Page({
       minute: '0' + 0,   // 分
       second: '0' + 0    // 秒
   },
-      
+
+  test: function(){
+    wx.request({
+        url: 'http://101.133.236.170/api/genTest', //本地服务器地址
+        // data: {
+        //   username: '001',
+        //   password: 'abc',
+        // },
+        method: 'GET',
+        header: {
+          'content-type': 'application/json' //默认值
+        },
+        success: function (res) {
+          console.log(res);
+        },
+        fail: function (res) {
+          console.log("失败");
+        }
+      })
+  },
   onLoad: function (options) {
       // 调用函数
       this.setInterval()
