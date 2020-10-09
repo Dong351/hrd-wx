@@ -1,4 +1,4 @@
-<view style="opacity:{{op}}">
+<view style="opacity:{{op}}" wx:if="{{show}}">
   <view id="record">
     <text>时间 : {{minute}}:{{second}}</text>
     <text>\n</text>
@@ -16,28 +16,27 @@
   <view id="hrd">
     <!-- <image mode="scaleToFill" src="https://s1.ax1x.com/2020/09/27/0k6oCQ.png"></image> -->
     <view id="onef">
-      <image id="1" mode="scaleToFill" bindtap="moveing" style="left:{{left1}}rpx;top:{{top1}}rpx;"
-        src="../../img/{{index}}/{{imgname[0]}}.jpg" data-imgsrc="../../img/1.jpg"></image>
+      <image src="/img/{{index}}/{{imgname[0]}}.jpg" id="1" mode="scaleToFill" bindtap="moveing" style="left:{{left1}}rpx;top:{{top1}}rpx;"></image>
       <image id="2" mode="scaleToFill" bindtap="moveing" style="left:{{left2}}rpx;top:{{top2}}rpx;"
-        src="../../img/{{index}}/{{imgname[1]}}.jpg" data-imgsrc="../../img/2.jpg"></image>
+        src="/img/{{index}}/{{imgname[1]}}.jpg"></image>
       <image id="3" mode="scaleToFill" bindtap="moveing" style="left:{{left3}}rpx;top:{{top3}}rpx;"
-        src="../../img/{{index}}/{{imgname[2]}}.jpg" data-imgsrc="../../img/3.jpg"></image>
+        src="/img/{{index}}/{{imgname[2]}}.jpg"></image>
     </view>
     <view id="twof">
       <image id="4" mode="scaleToFill" bindtap="moveing" style="left:{{left4}}rpx;top:{{top4}}rpx;"
-        src="../../img/{{index}}/{{imgname[3]}}.jpg" data-imgsrc="../../img/4.jpg"></image>
+        src="/img/{{index}}/{{imgname[3]}}.jpg"></image>
       <image id="5" mode="scaleToFill" bindtap="moveing" style="left:{{left5}}rpx;top:{{top5}}rpx;"
-        src="../../img/{{index}}/{{imgname[4]}}.jpg" data-imgsrc="../../img/5.jpg"></image>
+        src="/img/{{index}}/{{imgname[4]}}.jpg"></image>
       <image id="6" mode="scaleToFill" bindtap="moveing" style="left:{{left6}}rpx;top:{{top6}}rpx;"
-        src="../../img/{{index}}/{{imgname[5]}}.jpg" data-imgsrc="../../img/6.jpg"></image>
+        src="/img/{{index}}/{{imgname[5]}}.jpg"></image>
     </view>
     <view id="threef">
       <image id="7" mode="scaleToFill" bindtap="moveing" style="left:{{left7}}rpx;top:{{top7}}rpx;"
-        src="../../img/{{index}}/{{imgname[6]}}.jpg" data-imgsrc="../../img/7.jpg"></image>
+        src="/img/{{index}}/{{imgname[6]}}.jpg" ></image>
       <image id="8" mode="scaleToFill" bindtap="moveing" style="left:{{left8}}rpx;top:{{top8}}rpx;"
-        src="../../img/{{index}}/{{imgname[7]}}.jpg" data-imgsrc="../../img/8.jpg"></image>
+        src="/img/{{index}}/{{imgname[7]}}.jpg" ></image>
       <image id="9" mode="scaleToFill" bindtap="moveing" style="left:{{left9}}rpx;top:{{top9}}rpx;"
-        src="../../img/{{index}}/{{imgname[8]}}.jpg" data-imgsrc="../../img/9.jpg"></image>
+        src="/img/{{index}}/{{imgname[8]}}.jpg" ></image>
     </view>
   </view>
 </view>
@@ -55,7 +54,7 @@
   
   <view id="winButton">
     <button bindtap="again">再来一把</button>
-    <button>查看排名</button>
+    <button bindtap="record">查看排名</button>
     <button bindtap="backToIndex">返回首页</button>
   </view>
 

@@ -12,6 +12,7 @@ Page({
     imgname: "", //图块的序号数组
     back: "", //备份的图块的序号数组
     cheat_step: "", //自动复原的string串
+    show: false,
     win: false,
     op: 1,
     cnt: 0,
@@ -96,7 +97,7 @@ Page({
 
   backToIndex: function () {
     wx.navigateTo({
-      url: '../index/index',
+      url: '/pages/index/index',
     })
   },
   moveing: function (e) {
@@ -136,8 +137,8 @@ Page({
       }
     }
     let cnt = 0;
-    for (let i = 1; i < 10; i++) {
-      if (this.data.imgname[i] == i) {
+    for (let i = 0; i < 9; i++) {
+      if (this.data.imgname[i] == i+1) {
         cnt++;
       }
     }
@@ -149,7 +150,27 @@ Page({
           op: 0.3
         }),
         clearInterval(this.data.setInter);
-
+      
+      //提交游戏结果
+      let that = this;
+    wx.request({
+      url: 'http://101.133.236.170/api/record', //本地服务器地址
+      data: {
+        Size: that.data.cnt,
+        Time: that.data.second+that.data.minute*60
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json', //默认值
+        'Authorization': app.globalData.token
+      },
+      success: function (res) {
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log("提交成绩失败");
+      }
+    })
     }
     console.log(this.data.imgname);
   },
@@ -163,10 +184,19 @@ Page({
   },
   change: function () {
     wx.navigateTo({
-      url: '../tarImg/tarImg',
+      url: '/pages/tarImg/tarImg',
     })
   },
 
+  sleep: function (numberMillis) {
+    var now = new Date();
+    var exitTime = now.getTime() + numberMillis;
+    while (true) {
+      now = new Date();
+      if (now.getTime() > exitTime)
+        return;
+    }
+  },
   cheat: function () {
     let that = this;
     wx.request({
@@ -186,61 +216,67 @@ Page({
         let str = step[0];
         console.log(str);
         for (let i = 0; i < str.length; i++) {
-          setTimeout(function () {
-            let tmp = str.charAt(i);
-            console.log(tmp);
-            let imgmat = that.data.imgname;
-            let index;
-            for (let i = 0; i < imgmat.length; i++) {
-              if (imgmat[i] == 0) {
-                index = i;
-                console.log(index);
-              }
+          // setTimeout(function () {
+          let tmp = str.charAt(i);
+          console.log(tmp);
+          let imgmat = that.data.imgname;
+          let index;
+          for (let i = 0; i < imgmat.length; i++) {
+            if (imgmat[i] == 0) {
+              index = i;
+              console.log(index);
             }
-            //移动图块
-            if (tmp == "a") {
-              that.data.imgname[index] = that.data.imgname[index - 1];
-              that.data.imgname[index - 1] = 0;
-              that.setData({
-                imgname: that.data.imgname,
-                cnt: that.data.cnt+1
-              })
-            } else if (tmp == "d") {
-              that.data.imgname[index] = that.data.imgname[index + 1];
-              that.data.imgname[index + 1] = 0;
-              that.setData({
-                imgname: that.data.imgname,
-                cnt: that.data.cnt+1
-              })
-            } else if (tmp == "w") {
-              that.data.imgname[index] = that.data.imgname[index - 3];
-              that.data.imgname[index - 3] = 0;
-              that.setData({
-                imgname: that.data.imgname,
-                cnt: that.data.cnt+1
-              })
-            } else if (tmp == "s") {
-              that.data.imgname[index] = that.data.imgname[index + 3];
-              that.data.imgname[index + 3] = 0;
-              that.setData({
-                imgname: that.data.imgname,
-                cnt: that.data.cnt+1
-              })
-            }
-
+          }
+          //移动图块
+          if (tmp == "a") {
+            that.data.imgname[index] = that.data.imgname[index - 1];
+            that.data.imgname[index - 1] = 0;
             that.setData({
-                win: true,
-                op: 0.3
-              }),
-              clearInterval(that.data.setInter);
-          }, 1000)
+              imgname: that.data.imgname,
+              cnt: that.data.cnt + 1
+            })
+          } else if (tmp == "d") {
+            that.data.imgname[index] = that.data.imgname[index + 1];
+            that.data.imgname[index + 1] = 0;
+            that.setData({
+              imgname: that.data.imgname,
+              cnt: that.data.cnt + 1
+            })
+          } else if (tmp == "w") {
+            that.data.imgname[index] = that.data.imgname[index - 3];
+            that.data.imgname[index - 3] = 0;
+            that.setData({
+              imgname: that.data.imgname,
+              cnt: that.data.cnt + 1
+            })
+          } else if (tmp == "s") {
+            that.data.imgname[index] = that.data.imgname[index + 3];
+            that.data.imgname[index + 3] = 0;
+            that.setData({
+              imgname: that.data.imgname,
+              cnt: that.data.cnt + 1
+            })
+          }
+          that.sleep(500);
+          //       }, 10000)
         }
+        that.setData({
+            win: true,
+            op: 0.3
+          }),
+        clearInterval(that.data.setInter);
       },
       fail: function (res) {
         console.log("自动复原失败获取失败");
       }
     })
 
+  },
+  
+  record: function(){
+    wx.navigateTo({
+      url: '../record/record',
+    })
   },
 
   /**
@@ -250,6 +286,30 @@ Page({
     // 获取全局变量，确定图片index
     this.setData({
       index: app.globalData.img_index
+    })
+
+    // 获取图片序列
+    wx.request({
+      url: 'http://101.133.236.170/api/genTest', //本地服务器地址
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      success: function (res) {
+        let mate = res.data.data.mate;
+        console.log(mate);
+        that.setData({
+          imgname: mate
+        })
+        let mate2 = JSON.parse(JSON.stringify(mate));
+        that.data.back = mate2;
+        that.setData({
+          show: true
+        })
+      },
+      fail: function (res) {
+        console.log("图片序列获取失败");
+      }
     })
 
     // 获取页面初始分辨率
@@ -272,30 +332,7 @@ Page({
     //开启计时器
     this.setInterval();
 
-    // 获取图片序列
-    wx.request({
-      url: 'http://101.133.236.170/api/genTest', //本地服务器地址
-      // data: {
-      //   username: '001',
-      //   password: 'abc',
-      // },
-      method: 'GET',
-      header: {
-        'content-type': 'application/json' //默认值
-      },
-      success: function (res) {
-        let mate = res.data.data.mate;
-        console.log(mate);
-        that.setData({
-          imgname: mate,
-        })
-        let mate2 = JSON.parse(JSON.stringify(mate));
-        that.data.back = mate2;
-      },
-      fail: function (res) {
-        console.log("图片序列获取失败");
-      }
-    })
+
   },
 
   /**

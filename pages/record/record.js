@@ -1,41 +1,35 @@
-// pages/targerImg/targerImg.js
-const app = getApp();
+// pages/record/record.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index: ""
+    listData: ""
   },
-
-  GoToGame: function(){
-    wx.navigateTo({
-      url: '../game/game',
-    })
-  },
-
-
-
-
-
-
-
-
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let num = Math.random();
-    num = num*26;
-    num = Math.floor(num);
-    app.globalData.img_index = num;
-    console.log(app.globalData.img_index);
-    this.setData({
-      index: app.globalData.img_index
-    })    
+    let that = this;
+    wx.request({
+      url: 'http://101.133.236.170/api/record', //本地服务器地址
+      method: 'GET',
+      header: {
+        'content-type': 'application/json', //默认值
+        'Authorization': app.globalData.token
+      },
+      success: function (res) {
+        console.log(res.data.data);
+        that.setData({
+          listData: res.data.data
+        })
+      },
+      fail: function (res) {
+        console.log("获取记录失败");
+      }
+    })
   },
 
   /**
