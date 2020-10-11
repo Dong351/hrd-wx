@@ -12,6 +12,7 @@ Page({
     imgname: "", //图块的序号数组
     back: "", //备份的图块的序号数组
     cheat_step: "", //自动复原的string串
+    mod_show:"数字",
     show: false,
     win: false,
     op: 1,
@@ -154,7 +155,7 @@ Page({
       //提交游戏结果
       let that = this;
     wx.request({
-      url: 'http://101.133.236.170/api/record', //本地服务器地址
+      url: 'https://soft.leavessoft.cn/api/record', 
       data: {
         Size: that.data.cnt,
         Time: that.data.second+that.data.minute*60
@@ -200,7 +201,7 @@ Page({
   cheat: function () {
     let that = this;
     wx.request({
-      url: 'http://101.133.236.170/api/answer', //本地服务器地址
+      url: 'https://soft.leavessoft.cn/api/answer', //本地服务器地址
       data: {
         mate: that.data.imgname
       },
@@ -272,6 +273,20 @@ Page({
     })
 
   },
+
+  changenum: function(){
+    if(this.data.mod_show == "数字"){
+      this.setData({
+        index: 'num',
+        mod_show: "图块"
+      })
+    }
+    else{
+      this.setData({
+        mod_show: "数字"
+      })
+    }
+  },
   
   record: function(){
     wx.navigateTo({
@@ -290,7 +305,7 @@ Page({
 
     // 获取图片序列
     wx.request({
-      url: 'http://101.133.236.170/api/genTest', //本地服务器地址
+      url: 'https://soft.leavessoft.cn/api/genTest', //本地服务器地址
       method: 'GET',
       header: {
         'content-type': 'application/json' //默认值
@@ -308,6 +323,7 @@ Page({
         })
       },
       fail: function (res) {
+        console.log(res);
         console.log("图片序列获取失败");
       }
     })

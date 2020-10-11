@@ -12,11 +12,13 @@
   </view>
 
   <button id="cheat" bindtap="cheat">自动复原</button>
+  <button id="changenum" bindtap="changenum">{{mod_show}}模式</button>
 
   <view id="hrd">
     <!-- <image mode="scaleToFill" src="https://s1.ax1x.com/2020/09/27/0k6oCQ.png"></image> -->
     <view id="onef">
-      <image src="/img/{{index}}/{{imgname[0]}}.jpg" id="1" mode="scaleToFill" bindtap="moveing" style="left:{{left1}}rpx;top:{{top1}}rpx;"></image>
+      <image  id="1" mode="scaleToFill" bindtap="moveing" style="left:{{left1}}rpx;top:{{top1}}rpx;"
+        src="/img/{{index}}/{{imgname[0]}}.jpg"></image>
       <image id="2" mode="scaleToFill" bindtap="moveing" style="left:{{left2}}rpx;top:{{top2}}rpx;"
         src="/img/{{index}}/{{imgname[1]}}.jpg"></image>
       <image id="3" mode="scaleToFill" bindtap="moveing" style="left:{{left3}}rpx;top:{{top3}}rpx;"
@@ -41,6 +43,7 @@
   </view>
 </view>
 
+<!-- 获胜界面 -->
 <view id="win" wx:if="{{win}}">
   <view id="bg"></view>
   

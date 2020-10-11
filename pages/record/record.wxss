@@ -3,12 +3,52 @@
   position: absolute;
   height: 1000rpx;
   width: 600rpx;
-  background: transparent;
+  background: rgb(236, 236, 236);
 
   left: 75rpx;
   top: 100rpx;
   border: thick double #7da3b3;
 }
+
+.sin{
+  position: relative;
+  height: 140rpx;
+  border-bottom: 2rpx  solid black;
+}
+
+.sin .head{
+  position: relative;
+  left: 20rpx;
+  top: 28rpx;
+  width: 90rpx;
+  border-radius: 50%;
+}
+
+.sin .name{
+  position: relative;
+  left: 50rpx;
+  bottom: 30rpx;
+  font-weight: 600;
+}
+
+.sin .time_size{
+  position: relative;
+  left: 120rpx;
+  bottom: 20rpx;
+  font-size: 24rpx;
+}
+
+.sin .time_size text{
+  margin-left: 20rpx;
+  font-style: italic;
+}
+
+.sin .rank{
+  position: relative;
+  left: 530rpx;
+  top: -80rpx;
+}
+
 
 /*
 分割线
@@ -57,7 +97,7 @@
    display: flex;
    font-size: 25rpx;
    height: 99%;
-   border-bottom: 1px solid #dddddd;
+   border-bottom: 1px solid #dddddd; 
    border-right: 1px solid #dddddd;
  }
  /*

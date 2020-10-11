@@ -1,4 +1,5 @@
 // pages/record/record.js
+const app = getApp()
 Page({
 
   /**
@@ -13,18 +14,21 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    let token = app.globalData.token;
     wx.request({
-      url: 'http://101.133.236.170/api/record', //本地服务器地址
+      url: 'https://soft.leavessoft.cn/api/rank', //本地服务器地址
       method: 'GET',
       header: {
         'content-type': 'application/json', //默认值
-        'Authorization': app.globalData.token
+        // 'Authorization': token
       },
       success: function (res) {
         console.log(res.data.data);
         that.setData({
-          listData: res.data.data
+          listData: res.data.data.rank
         })
+        console.log(that.data.listData);
+        
       },
       fail: function (res) {
         console.log("获取记录失败");

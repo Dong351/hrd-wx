@@ -121,3 +121,15 @@
 
   width: 280rpx;
 }
+
+#changenum{
+  position: absolute;
+  top: 980rpx;
+  left: 60rpx;
+
+  background: transparent;
+  border: solid 2rpx black;
+  font-size: 28rpx;
+
+  width: 280rpx;
+}

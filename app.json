@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/record/record",
-    "pages/test/test",
+    "pages/index/index",
     "pages/tarImg/tarImg",
+    "pages/test/test",
     "pages/game/game",
     "pages/win/win",
     "pages/moveing/moveing",
