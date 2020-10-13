@@ -1,0 +1,55 @@
+#record{
+  position: absolute;
+  height: 800rpx;
+  width: 600rpx;
+  background: rgb(236, 236, 236);
+
+  left: 75rpx;
+  top: 100rpx;
+  border: thick double #A8D9D8;
+  overflow:hidden;
+  overflow-y: scroll;
+}
+
+#nullrecord{
+  font-size: 50rpx;
+}
+
+.sin{
+  position: relative;
+  height: 140rpx;
+  border-bottom: 2rpx  solid black;
+}
+
+.sin .head{
+  position: relative;
+  left: 20rpx;
+  top: 28rpx;
+  width: 90rpx;
+  border-radius: 50%;
+}
+
+.sin .name{
+  position: relative;
+  left: 50rpx;
+  bottom: 30rpx;
+  font-weight: 600;
+}
+
+.sin .time_size{
+  position: relative;
+  left: 120rpx;
+  bottom: 20rpx;
+  font-size: 24rpx;
+}
+
+.sin .time_size text{
+  margin-left: 20rpx;
+  font-style: italic;
+}
+
+.sin .rank{
+  position: relative;
+  left: 530rpx;
+  top: -80rpx;
+}

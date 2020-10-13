@@ -8,7 +8,7 @@
   <view id="iron">
     <image src="../../iron/u202.png" bindtap="flush"></image>
     <image src="../../iron/u204.png" bindtap="change"></image>
-    <image src="../../iron/u206.png" bindtap="GoToTarget"></image>
+    <image wx:if="{{mod_show == '数字'}}" src="../../iron/u206.png" bindtap="GoToTarget"></image>
   </view>
 
   <button id="cheat" bindtap="cheat">自动复原</button>
@@ -61,4 +61,5 @@
     <button bindtap="backToIndex">返回首页</button>
   </view>
 
+  <view id="ischeat" wx:if="{{ischeat}}">(自动复原不计入历史成绩)</view>
 </view>

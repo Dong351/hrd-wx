@@ -6,9 +6,12 @@
 </div>
 
 <div id="bt">
-  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
-  <button bindtap="GoToTargetPage">开始游戏</button>
-  <button bindtap="GoToRule">游戏规则</button>
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style='background-image: url("https://s1.ax1x.com/2020/10/11/0gbao6.png");background-size: cover;'></button>
+  <button bindtap="GoToTargetPage" style='background-image: url("https://s1.ax1x.com/2020/10/11/0gbwFK.png");background-size: cover;'></button>
+  <!-- <button bindtap="GoToRule" style='background-image: url("https://s1.ax1x.com/2020/10/11/0gb0JO.png");background-size: cover;'></button> -->
+  <button bindtap="GoToRecord" style='background-image: url("https://s1.ax1x.com/2020/10/12/0W2JHS.png");background-size: cover;'></button>
+
+  <!-- https://s1.ax1x.com/2020/10/12/0W2JHS.png -->
 </div>
 
 

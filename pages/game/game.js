@@ -15,6 +15,7 @@ Page({
     mod_show:"数字",
     show: false,
     win: false,
+    ischeat: false,
     op: 1,
     cnt: 0,
     scale: "",
@@ -178,9 +179,10 @@ Page({
 
   flush: function () {
     console.log(this.data.back);
-
+    let backmate = JSON.parse(JSON.stringify(this.data.back));
     this.setData({
-      imgname: this.data.back
+      imgname: backmate,
+      cnt: 0
     })
   },
   change: function () {
@@ -272,6 +274,9 @@ Page({
       }
     })
 
+    this.setData({
+      ischeat: true
+    })
   },
 
   changenum: function(){
@@ -283,7 +288,8 @@ Page({
     }
     else{
       this.setData({
-        mod_show: "数字"
+        mod_show: "数字",
+        index: app.globalData.img_index
       })
     }
   },

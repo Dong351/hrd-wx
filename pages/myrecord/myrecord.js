@@ -1,4 +1,4 @@
-// pages/record/record.js
+// pages/myrecord/myrecord.js
 const app = getApp()
 Page({
 
@@ -6,15 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    listData: ""
+    listData:"",
+    emptylist: true
   },
-
-  myrecord: function(){
-    wx.navigateTo({
-      url: '../myrecord/myrecord',
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -23,22 +17,23 @@ Page({
     let that = this;
     let token = app.globalData.token;
     wx.request({
-      url: 'https://soft.leavessoft.cn/api/rank', //本地服务器地址
+      url: 'https://soft.leavessoft.cn/api/record', //本地服务器地址
       method: 'GET',
       header: {
         'content-type': 'application/json', //默认值
-        // 'Authorization': token
+        'Authorization': token
       },
       success: function (res) {
         console.log(res.data.data);
         that.setData({
-          listData: res.data.data.rank
+          listData: res.data.data,
+          emptylist: false
         })
         console.log(that.data.listData);
         
       },
       fail: function (res) {
-        console.log("获取记录失败");
+        console.log("获取个人记录失败");
       }
     })
   },

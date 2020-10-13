@@ -1,13 +1,14 @@
 {
   "pages":[
-    "pages/record/record",
     "pages/index/index",
+    "pages/record/record",
+    "pages/myrecord/myrecord",
+    "pages/rule/rule",
     "pages/tarImg/tarImg",
-    "pages/test/test",
     "pages/game/game",
+    "pages/test/test",
     "pages/win/win",
     "pages/moveing/moveing",
-    "pages/rule/rule",
     "pages/targerImg/targerImg",
     "pages/logs/logs"
   ],

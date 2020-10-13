@@ -2,11 +2,29 @@
 
 #rule{
   display: block;
-  width: 660rpx;
+  width: 500rpx;
   height: 356rpx;
   margin: 100rpx auto;
   background:transparent;
-  border: black 2rpx solid;
+  /* border: black 2rpx solid; */
+}
+
+#rule image{
+  position: absolute;
+  width: 500rpx;
+  top: 180rpx;
+  left: 120rpx;
+}
+
+#rule #bg{
+  position: absolute;
+  left: 90rpx;
+  top: 130rpx;
+  width: 560rpx;
+  height: 460rpx;
+  background:white;
+  border: 2rpx solid black;
+  opacity: 0.3;
 }
 
 #rule text{
@@ -19,7 +37,7 @@ image{
   width: 680rpx;
   margin: 0 auto;
   left: 50rpx;
-  top: 500rpx;
+  top: 550rpx;
 }
 
 button{

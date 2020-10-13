@@ -133,3 +133,12 @@
 
   width: 280rpx;
 }
+
+#ischeat{
+  position: relative;
+  left: 260rpx;
+  top: -200rpx;
+  font-size: 22rpx;
+  font-weight: bold;
+  color: red;
+}

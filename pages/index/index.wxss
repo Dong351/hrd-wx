@@ -26,7 +26,7 @@
 #bt button{
   top: 620rpx;
   width: 388rpx;
-  height: 92rpx;
+  height: 95rpx;
 
   margin: 75rpx auto;
   background-color: transparent;
@@ -36,6 +36,10 @@
   font-size: 54rpx;
   border-radius: 8rpx;
 }
+
+
+
+
 
 
 

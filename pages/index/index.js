@@ -21,7 +21,11 @@ Page({
       url: '../rule/rule',
     })
   },
-
+  GoToRecord: function () {
+    wx.navigateTo({
+      url: '../record/record',
+    })
+  },
   login: function () {
     let that = this;
     wx.login({
@@ -74,7 +78,8 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+
     let that = this;
     // 用户登录
     wx.login({
@@ -149,8 +154,20 @@ Page({
       hasUserInfo: true
     })
     this.login();
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '第一次登录该小程序资源需要加载，请耐心等待',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('弹框后点取消')
+        } else {
+          console.log('弹框后点取消')
+        }
+      }
+    })
 
-    let that = this;
+    // let that = this;
     // 上传个人信息的头像和昵称
     wx.request({
       url: 'https://soft.leavessoft.cn/api/info', //本地服务器地址
