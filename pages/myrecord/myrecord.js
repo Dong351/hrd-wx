@@ -7,7 +7,7 @@ Page({
    */
   data: {
     listData:"",
-    emptylist: true
+    emptylist: false
   },
 
   /**
@@ -27,8 +27,17 @@ Page({
         console.log(res.data.data);
         that.setData({
           listData: res.data.data,
-          emptylist: false
         })
+        if(!(that.data.listData instanceof Array)){
+          that.setData({
+            emptylist:true
+          })
+        }
+        else{
+          that.setData({
+            emptylist:false
+          })
+        }
         console.log(that.data.listData);
         
       },

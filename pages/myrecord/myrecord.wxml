@@ -1,17 +1,17 @@
 <view>
   <view id="record" >
-    <view id="nullrecord" wx:if="{{emptylist}}">尚无成绩,请先登录或者玩一把 :)</view>
     <view class="sin" wx:for="{{listData}}" wx:key="id">
       <image mode="widthFix" class="head"
         src="{{item.avatar}}">
       </image>
-      <text class="name">{{item.name}}</text>
+      <text class="name">{{item.name}}</text> 
       <view class="time_size">
         <text>步数：{{item.Size}}</text>
         <text>耗时：{{item.Time}}s</text> 
       </view>
       <text class="rank" style="{{index == 0 ? 'color: red; font-weight: 700' : index == 1 ? 'color: blue; font-weight: 700': index == 2 ? 'color: #FFBE26; font-weight: 700' : ''}}">{{index+1}}</text>
     </view>
+    <view id="nullrecord" wx:if="{{emptylist}}">尚无成绩,请先登录或者玩一把 :)</view>
   </view>
 
 </view>

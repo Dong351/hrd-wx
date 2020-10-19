@@ -10,7 +10,7 @@ Page({
   },
 
   GoToGame: function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../game/game',
     })
   },

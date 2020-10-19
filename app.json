@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/record/record",
     "pages/myrecord/myrecord",
+    "pages/record/record",
     "pages/rule/rule",
     "pages/tarImg/tarImg",
     "pages/game/game",

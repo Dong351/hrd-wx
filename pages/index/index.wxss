@@ -25,8 +25,8 @@
 
 #bt button{
   top: 620rpx;
-  width: 388rpx;
-  height: 95rpx;
+  width: 395rpx;
+  height: 110rpx;
 
   margin: 75rpx auto;
   background-color: transparent;
@@ -34,7 +34,7 @@
   font-family: ‘Courier New’, Courier, monospace;
   /* font-family:'LiDeBiao-Xing323a2cd0b2d227a5'; */
   font-size: 54rpx;
-  border-radius: 8rpx;
+  border-radius: 16rpx;
 }
 
 

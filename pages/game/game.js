@@ -92,13 +92,13 @@ Page({
   },
 
   again: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../tarImg/tarImg',
     })
   },
 
   backToIndex: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/index/index',
     })
   },
@@ -108,14 +108,14 @@ Page({
 
     // 图块移动 当win=true时，图块锁定
     if (!this.data.win) {
-      if ((this.data.imgname[selectid] == 0) && (selectid < 9)) {
+      if ((this.data.imgname[selectid] == 0) && (selectid < 9) && (selectid != 6) && (selectid != 3)) {
         this.data.imgname[selectid] = this.data.imgname[selectid - 1];
         this.data.imgname[selectid - 1] = 0;
         this.setData({
           imgname: this.data.imgname,
           cnt: this.data.cnt + 1
         })
-      } else if ((this.data.imgname[selectid - 2] == 0) && (selectid > 1)) {
+      } else if ((this.data.imgname[selectid - 2] == 0) && (selectid > 1) && (selectid != 4) && (selectid != 7)) {
         this.data.imgname[selectid - 2] = this.data.imgname[selectid - 1];
         this.data.imgname[selectid - 1] = 0;
         this.setData({
@@ -186,7 +186,7 @@ Page({
     })
   },
   change: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/tarImg/tarImg',
     })
   },
